@@ -20,9 +20,13 @@ $dsn = 'mysql:host=' . $this->host . ';port=' . $this->port . ';dbname=' .
           $this ->conexao = new PDO($dsn, $this->user, $this->pwd);
           $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           echo "Conectou com sucesso!";
-    } catch(\Exception $e){
-            echo "Erro" . $e->getMessage();
-
+    } catch(\PDOException $e){
+            return json_encode(["Erro" => "Não foi possível conectar ao banco de dados" . $e->getMessage()],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        } catch(\Throwable $e){
+            return json_encode(["Erro" => "Não foi possível conectar ao banco de dados" . $e->getMessage()],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         }
+        return $this->conexao;
     }
 }
