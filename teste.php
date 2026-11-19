@@ -18,4 +18,4 @@ echo "==========PRATO CRIADO==========<br>
     Descrição: " . $this->getDescricao() . "<br>
     Preço: " . $this->getPrecoFormatado() . "<br>
 
-    echo $meuprato->getPratoHTML();
+    echo $meuprato -> getPratoHTML();
