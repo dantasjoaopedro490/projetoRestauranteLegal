@@ -94,4 +94,4 @@ class Sobremesa { // Propriedades da classe Sobremesa
                 Descrição: " . $this->getDescricao() . " <br>
                 Preço: " . $this->getPrecoFormatado() . " <br><br>";
     }
-}
+}aaaa
